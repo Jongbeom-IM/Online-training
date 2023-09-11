@@ -1,4 +1,4 @@
-https://jongbeom-im.github.io/Online-training/
+#https://jongbeom-im.github.io/Online-training/
 
 Photon by HTML5 UP
 html5up.net | @ajlkn
