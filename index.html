@@ -1,46 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perco-datacenter</title>
-</head>
-
-<body>
-	<head>
-		<h1>PERCO's ML-online-training Data Storage</h1>
-	</head>
-    <div id="message-container"></div>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Websocket Chatting</title>
 
     <script>
-        // 웹소켓 서버 주소
-        const socketServer = 'ws://your-websocket-server-url';
+      const ws = new WebSocket("ws://localhost:8001")
 
-        // 웹소켓 연결
-        const socket = new WebSocket(socketServer);
+      // 메세지 전송
+      function sendMessage() {}
 
-        // 연결이 열리면 이벤트 핸들러
-        socket.addEventListener('open', (event) => {
-            console.log('웹소켓 연결이 열렸습니다.');
-        });
-
-        // 메시지 수신 이벤트 핸들러
-        socket.addEventListener('message', (event) => {
-            const messageContainer = document.getElementById('message-container');
-            const newMessage = document.createElement('p');
-            newMessage.textContent = `받은 메시지: ${event.data}`;
-            messageContainer.appendChild(newMessage);
-        });
-
-        // 연결이 닫힐 때 이벤트 핸들러
-        socket.addEventListener('close', (event) => {
-            console.log('웹소켓 연결이 닫혔습니다.');
-        });
-
-        // 에러 발생 시 이벤트 핸들러
-        socket.addEventListener('error', (event) => {
-            console.error('웹소켓 오류 발생:', event);
-        });
+      // 메세지 수신
+      function receiveMessage() {}
     </script>
-</body>
+  </head>
+  <body>
+    <h1>Hudi Chat</h1>
+    <div>
+      <input
+        type="text"
+        id="nickname"
+        placeholder="닉네임"
+        style="width: 50px"
+      />
+      <input
+        type="text"
+        id="message"
+        placeholder="메세지"
+        style="width: 200px"
+      />
+      <button>전송</button>
+    </div>
+
+    <div id="chat-log"></div>
+  </body>
 </html>
